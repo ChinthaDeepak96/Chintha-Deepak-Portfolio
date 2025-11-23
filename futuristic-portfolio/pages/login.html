@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign In — CHINTHA DEEPAK</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="auth-wrap">
+
+  <div class="auth-panel">
+    <div class="auth-card">
+      <h2>Welcome back</h2>
+      <form id="loginForm" class="form">
+        <label class="small">Email</label>
+        <input id="email" class="input" type="email" placeholder="you@example.com" required>
+
+        <label class="small">Password</label>
+        <div class="password-row">
+          <input id="pass" class="input" type="password" placeholder="Password" required>
+          <button id="toggle" type="button" class="toggle-btn">Show</button>
+        </div>
+
+        <div style="margin-top:12px;">
+          <button class="btn-solid" type="submit">Sign In</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="auth-panel">
+    <div class="spline-frame" style="width:80%;height:60vh;margin:0 auto;" id="splineHolderLogin">
+      <iframe id="splineFrameLogin"
+        class="spline-iframe"
+        src="https://my.spline.design/robotfollowcursorforlandingpage-d1JGOc1BTKPz5YGxoZpwtxED/"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        loading="lazy"></iframe>
+
+      <img class="spline-fallback" src="../assets/images/hologram-robot.png" alt="robot fallback"
+           onerror="this.onerror=null;this.src='/mnt/data/hologram-robot.png';" />
+    </div>
+  </div>
+
+<script src="../assets/js/login.js"></script>
+</body>
+</html>

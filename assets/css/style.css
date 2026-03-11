@@ -725,7 +725,7 @@ spline-viewer {
 
 
 /* =========================================================
-   ABOUT IMAGE — CLEAN CINEMATIC GLOW
+   ABOUT IMAGE — TIGHT GLOW + HOVER BOOST
    ========================================================= */
 
 .about-image-block {
@@ -745,57 +745,77 @@ spline-viewer {
   z-index: 2;
 
   box-shadow:
-    0 40px 120px rgba(0,0,0,0.85),
-    0 0 40px rgba(0,224,255,0.12);
+    0 35px 90px rgba(0,0,0,0.85),
+    0 0 20px rgba(0,224,255,0.15);
 
-  transition: transform .5s cubic-bezier(.18,.9,.3,1),
-              box-shadow .5s;
+  transition: transform .45s cubic-bezier(.18,.9,.3,1),
+              box-shadow .45s ease;
 }
 
 /* hover lift */
 .about-image-block img:hover {
   transform: translateY(-6px) scale(1.02);
+
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.9),
+    0 0 45px rgba(0,224,255,0.35),
+    0 0 80px rgba(168,85,247,0.25);
 }
 
-/* MAIN GLOW AURA */
+/* MAIN GLOW — tighter to image */
 .about-image-block::before {
   content: "";
   position: absolute;
-  width: 110%;
-  height: 110%;
-  border-radius: 28px;
+  width: 102%;
+  height: 102%;
+  border-radius: 26px;
 
   background:
     radial-gradient(
       circle at center,
       rgba(0,224,255,0.18),
-      rgba(168,85,247,0.16),
+      rgba(168,85,247,0.14),
       transparent 70%
     );
 
-  filter: blur(45px);
+  filter: blur(30px);
+  transition: all .45s ease;
   z-index: 1;
 }
 
-/* SOFT BACK LIGHT */
+/* hover glow expansion */
+.about-image-block:hover::before {
+  width: 106%;
+  height: 106%;
+  filter: blur(40px);
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0,224,255,0.35),
+      rgba(168,85,247,0.30),
+      transparent 70%
+    );
+}
+
+/* BACK SOFT HALO */
 .about-image-block::after {
   content: "";
   position: absolute;
-  width: 70%;
-  height: 70%;
+  width: 60%;
+  height: 60%;
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(168,85,247,0.25),
+      rgba(168,85,247,0.22),
       transparent 70%
     );
 
-  filter: blur(60px);
+  filter: blur(50px);
   z-index: 0;
 }
-
 /* =========================================================
    RESPONSIVE FIXES
    ========================================================= */

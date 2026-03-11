@@ -816,6 +816,7 @@ spline-viewer {
   filter: blur(50px);
   z-index: 0;
 }
+
 /* =========================================================
    RESPONSIVE FIXES
    ========================================================= */
@@ -2290,7 +2291,6 @@ spline-viewer {
 .spline-frame {
   transform: translateX(-2%);
 }
-
 
 
 

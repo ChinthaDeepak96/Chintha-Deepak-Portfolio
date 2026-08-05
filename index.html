@@ -47,6 +47,8 @@
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
+    <a href="#journey">My Journey</a>
+    <a href="#education">Education</a>
     <a href="#activity">Activity</a>
     <a href="#certifications">Certifications</a>
     <a href="#connect">Links</a>
@@ -65,24 +67,25 @@
     <h1 class="hero-title">
       Hi — I'm Deepak<br>
       AI & Robotics Engineer<br>
-      -
+      Robotics Trainee @ EPSON
     </h1>
 
     <p class="hero-sub">
-      I build robotics systems, AI models, embedded platforms,
-      and immersive 3D web experiences.
+      Computer Vision • ROS2 • Autonomous Systems — currently a Robotics
+      Engineering Trainee at EPSON India, building intelligent systems
+      that work outside the simulator.
     </p>
 
     <!-- QUICK STATS -->
     <div class="hero-meta">
       <div class="stat">
-        <div class="num">B.Tech (AI & Robotics)</div>
-        <div class="label">Dayananda Sagar University</div>
+        <div class="num">Robotics Engineer Intern</div>
+        <div class="label">EPSON India Pvt Ltd — 2026</div>
       </div>
 
       <div class="stat">
-        <div class="num">Intern Experience</div>
-        <div class="label">Teachnook — NLP & ML</div>
+        <div class="num">B.Tech (AI & Robotics)</div>
+        <div class="label">Dayananda Sagar University</div>
       </div>
     </div>
 
@@ -95,10 +98,12 @@
 
   <!-- RIGHT CONTENT (3D ROBOT) -->
   <section class="right-panel">
-    <div class="spline-frame">
+    <div class="spline-frame" id="splineHolder">
       <spline-viewer
+        id="splineViewer"
         url="https://prod.spline.design/QENkR5Qca-2r5jEJ/scene.splinecode">
       </spline-viewer>
+      <div class="cursor-capture" id="cursorCapture" title="Move your cursor — the robot is watching"></div>
     </div>
   </section>
 
@@ -115,20 +120,22 @@
     <div class="about-text-block">
       <span class="about-eyebrow">My Professional</span>
 
-      <h2 class="about-heading">
+      <h2 class="about-heading" data-reveal>
         Background, Skills<br>
         & Accomplishments
       </h2>
 
       <p class="about-description">
-        I’m an AI & Robotics engineering student passionate about automation,
-        intelligent systems, and building real-world solutions using AI,
-        embedded platforms, and robotics.
+        AI & Robotics engineering student with hands-on experience in Machine
+        Learning, Computer Vision, and IoT-based embedded systems — currently
+        a Robotics Engineering Trainee at EPSON India, working on industrial
+        automation and real-world manufacturing systems.
       </p>
 
       <p class="about-description muted">
-        My interests span robotics perception, machine learning, computer vision,
-        and deploying systems that actually work outside PowerPoint slides.
+        I build intelligent applications using Python, OpenCV, and deep learning
+        frameworks — from autonomous vehicle simulation to NLP sentiment
+        systems to medical image classification, all deployed outside PowerPoint slides.
       </p>
 
       <!-- SKILL TAGS -->
@@ -142,12 +149,12 @@
       <!-- STATS -->
       <div class="about-metrics">
         <div class="metric">
-          <strong>3+</strong>
+          <strong>4+</strong>
           <span>Major Projects</span>
         </div>
         <div class="metric">
-          <strong>1</strong>
-          <span>Industry Internship</span>
+          <strong>2</strong>
+          <span>Internships</span>
         </div>
         <div class="metric">
           <strong>AI</strong>
@@ -158,7 +165,7 @@
 
     <!-- RIGHT IMAGE -->
     <div class="about-image-block">
-      <img src="assets/images/Chintha Deepak.JPG" alt="Chintha Deepak">
+      <img src="assets/images/Chintha Deepak.PNG" alt="Chintha Deepak">
     </div>
 
   </div>
@@ -175,7 +182,7 @@
 
     <!-- Heading -->
     <div class="skills-header">
-      <h2 class="section-title">My Skills</h2>
+      <h2 class="section-title" data-reveal>My Skills</h2>
       <p class="skills-intro">
         A snapshot of my technical strengths, hands-on experience,
         and confidence levels across core domains.
@@ -186,7 +193,7 @@
     <div class="skills-dashboard">
 
       <!-- Skill Card -->
-      <div class="skill-card-pro">
+      <div class="skill-card-pro" data-reveal data-reveal-delay="0">
         <div class="skill-icon">
           <img src="assets/images/skills/ai.png" alt="AI">
         </div>
@@ -194,7 +201,7 @@
         <h3 class="skill-name">AI & Machine Learning</h3>
 
         <div class="skill-bar">
-          <span class="skill-fill" style="--level: 90%;"></span>
+          <span class="skill-fill" style="--level: 60%;"></span>
         </div>
 
         <div class="skill-meta">
@@ -204,7 +211,7 @@
       </div>
 
       <!-- Skill Card -->
-      <div class="skill-card-pro">
+      <div class="skill-card-pro" data-reveal data-reveal-delay="80">
         <div class="skill-icon">
           <img src="assets/images/skills/cv.png" alt="Computer Vision">
         </div>
@@ -212,7 +219,7 @@
         <h3 class="skill-name">Computer Vision</h3>
 
         <div class="skill-bar">
-          <span class="skill-fill" style="--level: 85%;"></span>
+          <span class="skill-fill" style="--level: 75%;"></span>
         </div>
 
         <div class="skill-meta">
@@ -222,7 +229,7 @@
       </div>
 
       <!-- Skill Card -->
-      <div class="skill-card-pro">
+      <div class="skill-card-pro" data-reveal data-reveal-delay="160">
         <div class="skill-icon">
           <img src="assets/images/skills/robotics.png" alt="Robotics">
         </div>
@@ -230,7 +237,7 @@
         <h3 class="skill-name">Robotics</h3>
 
         <div class="skill-bar">
-          <span class="skill-fill" style="--level: 80%;"></span>
+          <span class="skill-fill" style="--level: 50%;"></span>
         </div>
 
         <div class="skill-meta">
@@ -240,7 +247,7 @@
       </div>
 
       <!-- Skill Card -->
-      <div class="skill-card-pro">
+      <div class="skill-card-pro" data-reveal data-reveal-delay="240">
         <div class="skill-icon">
           <img src="assets/images/skills/embedded.png" alt="Embedded">
         </div>
@@ -248,7 +255,7 @@
         <h3 class="skill-name">Embedded Systems</h3>
 
         <div class="skill-bar">
-          <span class="skill-fill" style="--level: 78%;"></span>
+          <span class="skill-fill" style="--level: 68%;"></span>
         </div>
 
         <div class="skill-meta">
@@ -258,7 +265,7 @@
       </div>
 
       <!-- Skill Card -->
-      <div class="skill-card-pro">
+      <div class="skill-card-pro" data-reveal data-reveal-delay="320">
         <div class="skill-icon">
           <img src="assets/images/skills/esp32.png" alt="ESP32">
         </div>
@@ -276,7 +283,7 @@
       </div>
 
       <!-- Skill Card -->
-      <div class="skill-card-pro">
+      <div class="skill-card-pro" data-reveal data-reveal-delay="400">
         <div class="skill-icon">
           <img src="assets/images/skills/python.png" alt="Python">
         </div>
@@ -294,52 +301,88 @@
       </div>
 
     </div>
+
+    <!-- Broader stack — no icon needed, reuses .about-tags styling -->
+    <div class="about-tags skills-more-tags">
+      <span>C</span>
+      <span>JavaScript</span>
+      <span>React.js</span>
+      <span>Node.js</span>
+      <span>PyTorch</span>
+      <span>Scikit-learn</span>
+      <span>Matplotlib</span>
+      <span>ROS2</span>
+      <span>CoppeliaSim</span>
+      <span>Git & GitHub</span>
+      <span>Power BI</span>
+      <span>MATLAB</span>
+      <span>ANSYS</span>
+    </div>
+
   </div>
 </section>
-
 
 <!-- ======================================================
      PROJECTS SECTION
      ====================================================== -->
 <section id="projects" class="section">
   <div class="container">
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title" data-reveal>Projects</h2>
 
     <div class="projects-grid">
 
-      <a href="https://github.com/ChinthaDeepak96/ESP32-DHAN-Portfolio-Indicator"
+      <a href="https://github.com/ChinthaDeepak96/Cataract-Prediction-using-CNN-models-"
          target="_blank"
          class="project-link">
-        <div class="project-card">
-          <div class="thumb">
-            <img src="assets/images/iot.png" alt="IoT Stock Portfolio Indicator">
+        <div data-reveal data-reveal-delay="0" class="project-card">
+          <div class="slideshow">
+            <img src="assets/images/Projects/Cataract Predition/1.png" class="active" alt="AI-Based Cataract Detection">
+            <img src="assets/images/Projects/Cataract Predition/2.png" alt="AI-Based Cataract Detection">
+            <!-- add more screenshots here later -->
           </div>
-          <div class="title">IoT Stock Portfolio Indicator</div>
-          <div class="desc">ESP32 • DHAN API • OLED • Real-time Alerts</div>
+          <div class="title">AI-Based Cataract Detection</div>
+          <div class="desc">TensorFlow • ResNet50 • Transfer Learning • 98.6% Accuracy</div>
         </div>
       </a>
 
       <a href="https://github.com/ChinthaDeepak96/Twitter-Sentiment-Analysis-Chatbot"
          target="_blank"
          class="project-link">
-        <div class="project-card">
-          <div class="thumb">
-            <img src="assets/images/twitter.png" alt="Twitter Sentiment Chatbot">
+        <div data-reveal data-reveal-delay="100" class="project-card">
+          <div class="slideshow">
+            <img src="assets/images/Projects/Teachnook/twitter.jpg" class="active" alt="Twitter Sentiment Chatbot">
+            <!-- add more screenshots here later -->
           </div>
           <div class="title">Twitter Sentiment Chatbot</div>
-          <div class="desc">NLP • Python • APIs • Visualization</div>
+          <div class="desc">82,000+ Tweets • 93% Accuracy • Streamlit • Scikit-learn</div>
         </div>
       </a>
 
-      <div class="project-link disabled">
-        <div class="project-card coming-soon">
-          <div class="thumb soon">
-            <span>COMING SOON</span>
+      <a href="https://github.com/ChinthaDeepak96/ESP32-DHAN-Portfolio-Indicator"
+         target="_blank"
+         class="project-link">
+        <div data-reveal data-reveal-delay="200" class="project-card">
+          <div class="slideshow">
+            <img src="assets/images/Projects/Stock Portfolio/iot.jpg" class="active" alt="IoT Stock Portfolio Indicator">
+            <!-- add more screenshots here later -->
+          </div>
+          <div class="title">IoT Stock Portfolio Indicator</div>
+          <div class="desc">ESP32 • DHAN API • OLED • Real-time Alerts</div>
+        </div>
+      </a>
+
+      <a href="https://github.com/ChinthaDeepak96/Autonomous-car"
+         target="_blank"
+         class="project-link">
+        <div data-reveal data-reveal-delay="300" class="project-card in-progress">
+          <div class="slideshow">
+            <img src="assets/images/Projects/Autonomous Car/Autonomous Car.jpg" class="active" alt="Autonomous Car">
+            <!-- add more screenshots here later -->
           </div>
           <div class="title">Autonomous Car</div>
-          <div class="desc">Perception • Planning • Control • Sensors</div>
+          <div class="desc">OpenCV • Lane Detection • ROS2 Simulation • Steering Control</div>
         </div>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -350,7 +393,7 @@
      ====================================================== -->
 <section id="experience" class="section roadmap-section">
   <div class="container">
-    <h2 class="section-title">My Experience</h2>
+    <h2 class="section-title" data-reveal>My Experience</h2>
 
     <div class="roadmap">
 
@@ -358,24 +401,56 @@
       <div class="road-line"></div>
 
       <!-- EXPERIENCE ITEM 1 -->
-      <div class="road-item top">
+      <div class="road-item top pos-1">
         <div class="road-dot"></div>
         <div class="road-card">
           <span class="road-year">2024</span>
           <h3>AI / ML Intern</h3>
           <p class="company">Teachnook</p>
           <p class="desc">
-            Built NLP chatbots, trained ML models, worked with datasets,
-            and visualized insights using Python and ML pipelines.
+            3-month remote AI & ML internship. Hands-on with Python, NLP,
+            TensorFlow, Pandas, and NumPy — capstone: Twitter Sentiment
+            Analysis Chatbot.
           </p>
         </div>
       </div>
 
       <!-- EXPERIENCE ITEM 2 -->
-      <div class="road-item bottom">
+      <div class="road-item bottom pos-4">
         <div class="road-dot"></div>
         <div class="road-card">
-          <span class="road-year">2025 - PRESENT</span>
+          <span class="road-year">July 2026 - August 2026</span>
+          <h3>Robotics Engineer Intern</h3>
+          <p class="company">EPSON India Pvt Ltd</p>
+          <p class="desc">
+            On-site robotics internship in Bengaluru — industrial robotics,
+            automation systems, and manufacturing workflows. Hands-On experience
+            with SCARA & 6-Axis Robots. Included industrial visits to Mekhos
+            Technology Services and IBK Engineers.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ======================================================
+     MY JOURNEY — SELF-DRIVEN WORK TIMELINE
+     ====================================================== -->
+<section id="journey" class="section roadmap-section">
+  <div class="container">
+    <h2 class="section-title" data-reveal>My Journey</h2>
+
+    <div class="roadmap">
+
+      <!-- CENTER ROAD -->
+      <div class="road-line"></div>
+
+      <!-- JOURNEY ITEM 1 -->
+      <div class="road-item top pos-1">
+        <div class="road-dot"></div>
+        <div class="road-card">
+          <span class="road-year">2025</span>
           <h3>AI & Robotics Projects</h3>
           <p class="company">Self-driven</p>
           <p class="desc">
@@ -385,18 +460,64 @@
         </div>
       </div>
 
-      <!-- EXPERIENCE ITEM 3 -->
-      <div class="road-item top">
+      <!-- JOURNEY ITEM 2 -->
+      <div class="road-item bottom pos-4">
         <div class="road-dot"></div>
         <div class="road-card">
           <span class="road-year">NEXT</span>
           <h3>Autonomous Systems</h3>
-          <p class="company">Upcoming</p>
+          <p class="company">In Progress</p>
           <p class="desc">
             End-to-end autonomous car stack with sensors, perception,
-            planning, and control.
+            planning, and control — currently mid-build.
           </p>
         </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ======================================================
+     EDUCATION
+     ====================================================== -->
+<section id="education" class="section">
+  <div class="container">
+    <h2 class="section-title" data-reveal>Education</h2>
+
+    <div class="cert-timeline">
+
+      <div class="cert-item left">
+        <div class="cert-card" data-reveal data-reveal-delay="0">
+          <div class="slideshow">
+            <img src="assets/images/Education/DSU1.jpg" alt="Dayananda Sagar University">
+            <img src="assets/images/Education/DSU2.png" alt="...">
+          </div>
+          <div class="cert-info">
+            <h3>Dayananda Sagar University</h3>
+            <p>B.Tech — Artificial Intelligence & Robotics · 2023 – 2027</p>
+          </div>
+        </div>
+        <span class="cert-dot"></span>
+      </div>
+
+      <div class="cert-item right">
+        <span class="cert-dot"></span>
+        <div class="cert-card" data-reveal data-reveal-delay="100">
+          <div class="cert-info">
+            <h3>Sri Chaitanya Junior College</h3>
+            <p>Class XII (Intermediate) — 54% · 2021 – 2023</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-item left">
+        <div class="cert-card" data-reveal data-reveal-delay="200">
+          <div class="cert-info">
+            <h3>Nagarjuna Model School</h3>
+            <p>Class X — 92% · 2020 – 2021</p>
+          </div>
+        </div>
+        <span class="cert-dot"></span>
       </div>
 
     </div>
@@ -408,7 +529,7 @@
 <section id="activity" class="section activity-modules">
   <div class="container">
 
-    <h2 class="section-title">Activity</h2>
+    <h2 class="section-title" data-reveal>Activity</h2>
     <p class="section-subtitle">
       Systems I’m actively building, running, and improving.
     </p>
@@ -426,25 +547,25 @@
       </div>
 
       <!-- MODULES -->
-      <div class="system-module">
+      <div class="system-module" data-reveal data-reveal-delay="0">
         <h4>GitHub Builds</h4>
         <p>Publishing AI, robotics, and IoT projects with clean documentation.</p>
         <span class="module-status live">LIVE</span>
       </div>
 
-      <div class="system-module">
+      <div class="system-module" data-reveal data-reveal-delay="100">
         <h4>AI Experiments</h4>
         <p>Working on ML, NLP, perception pipelines, and model tuning.</p>
         <span class="module-status active">ACTIVE</span>
       </div>
 
-      <div class="system-module">
+      <div class="system-module" data-reveal data-reveal-delay="200">
         <h4>Robotics Prototypes</h4>
         <p>Hardware + software integration, sensors, control, automation.</p>
         <span class="module-status live">LIVE</span>
       </div>
 
-      <div class="system-module">
+      <div class="system-module" data-reveal data-reveal-delay="300">
         <h4>Learning & Research</h4>
         <p>Reading papers, simulations, and real-world system design.</p>
         <span class="module-status standby">RUNNING</span>
@@ -460,42 +581,14 @@
      ====================================================== -->
 <section id="certifications" class="section">
   <div class="container">
-    <h2 class="section-title">Licenses & Certifications</h2>
+    <h2 class="section-title" data-reveal>Licenses & Certifications</h2>
 
     <div class="cert-timeline">
 
       <!-- Certificate 1 -->
       <div class="cert-item left">
-        <div class="cert-card">
-          <img src="assets/images/Applications & Use Cases Professional_page-0001.jpg"
-               class="cert-image"
-               onclick="openCert(this.src)">
-          <div class="cert-info">
-            <h3>Applications & Use Cases</h3>
-            <p>RapidMiner · Professional</p>
-          </div>
-        </div>
-        <span class="cert-dot"></span>
-      </div>
-
-      <!-- Certificate 2 -->
-      <div class="cert-item right">
-        <span class="cert-dot"></span>
-        <div class="cert-card">
-          <img src="assets/images/ML PROFESSIONAL _page-0001.jpg"
-               class="cert-image"
-               onclick="openCert(this.src)">
-          <div class="cert-info">
-            <h3>Machine Learning</h3>
-            <p>RapidMiner · Professional</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Certificate 3 -->
-      <div class="cert-item left">
-        <div class="cert-card">
-          <img src="assets/images/Teachnook Artificial_Intelligence_August_2024_Batch-Chintha_Deepak_page-0001.jpg"
+        <div class="cert-card" data-reveal data-reveal-delay="0">
+          <img src="assets/images/Certifications/Teachnook Artificial_Intelligence_August_2024_Batch-Chintha_Deepak_page-0001.jpg"
                class="cert-image"
                onclick="openCert(this.src)">
           <div class="cert-info">
@@ -506,11 +599,52 @@
         <span class="cert-dot"></span>
       </div>
 
+      <!-- Certificate 2 -->
+      <div class="cert-item right">
+        <span class="cert-dot"></span>
+        <div class="cert-card" data-reveal data-reveal-delay="100">
+          <img src="assets/images/Certifications/Applications & Use Cases Professional_page-0001.jpg"
+               class="cert-image"
+               onclick="openCert(this.src)">
+          <div class="cert-info">
+            <h3>Applications & Use Cases</h3>
+            <p>RapidMiner · Professional</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate 3 -->
+      <div class="cert-item left">
+        <div class="cert-card" data-reveal data-reveal-delay="200">
+          <img src="assets/images/Certifications/ML PROFESSIONAL.jpg"
+               class="cert-image"
+               onclick="openCert(this.src)">
+          <div class="cert-info">
+            <h3>Machine Learning</h3>
+            <p>RapidMiner · Professional</p>
+          </div>
+        </div>
+        <span class="cert-dot"></span>
+      </div>
+
       <!-- Certificate 4 -->
       <div class="cert-item right">
         <span class="cert-dot"></span>
-        <div class="cert-card">
-          <img src="assets/images/Teachnook Artificial_Intelligence_August_2024_Batch-Chintha_Deepak 2_page-0001.jpg"
+        <div class="cert-card" data-reveal data-reveal-delay="300">
+          <img src="assets/images/Certifications/NASA Space Apps Challenge.jpg"
+               class="cert-image"
+               onclick="openCert(this.src)">
+          <div class="cert-info">
+            <h3>NASA Space Apps Challenge</h3>
+            <p>NASA</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate 5 -->
+      <div class="cert-item left">
+        <div class="cert-card" data-reveal data-reveal-delay="400">
+          <img src="assets/images/Certifications/Teachnook Artificial_Intelligence_August_2024_Batch-Chintha_Deepak 2_page-0001.jpg"
                class="cert-image"
                onclick="openCert(this.src)">
           <div class="cert-info">
@@ -518,12 +652,68 @@
             <p>Teachnook</p>
           </div>
         </div>
+        <span class="cert-dot"></span>
+      </div>
+
+      <!-- Certificate 6 -->
+      <div class="cert-item right">
+        <span class="cert-dot"></span>
+        <div class="cert-card" data-reveal data-reveal-delay="500">
+          <img src="assets/images/Certifications/AWS Technical Essentials.jpg"
+               class="cert-image"
+               onclick="openCert(this.src)">
+          <div class="cert-info">
+            <h3>AWS Technical Essentials</h3>
+            <p>Amazon Web Services</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate 7 -->
+      <div class="cert-item left">
+        <div class="cert-card" data-reveal data-reveal-delay="600">
+          <img src="assets/images/Certifications/AWS Cloud Practitioner Essentials.jpg"
+               class="cert-image"
+               onclick="openCert(this.src)">
+          <div class="cert-info">
+            <h3>AWS Cloud Practitioner Essentials</h3>
+            <p>Amazon Web Services</p>
+          </div>
+        </div>
+        <span class="cert-dot"></span>
+      </div>
+
+      <!-- Certificate 8 -->
+      <div class="cert-item right">
+        <span class="cert-dot"></span>
+        <div class="cert-card" data-reveal data-reveal-delay="700">
+          <img src="assets/images/Certifications/EPSON Internship.jpg"
+               class="cert-image"
+               onclick="openCert(this.src)">
+          <div class="cert-info">
+            <h3>EPSON Internship</h3>
+            <p>EPSON India Pvt Ltd</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate 9 -->
+      <div class="cert-item left">
+        <div class="cert-card" data-reveal data-reveal-delay="800">
+          <img src="assets/images/Certifications/Personal effectiveness.jpg"
+               class="cert-image"
+               onclick="openCert(this.src)">
+          <div class="cert-info">
+            <h3>Personal Effectiveness</h3>
+            <p>Dayananda Sagar University</p>
+          </div>
+        </div>
+        <span class="cert-dot"></span>
       </div>
 
     </div>
   </div>
 </section>
-
 <!-- ======================================================
      CERTIFICATE FULLSCREEN MODAL
      ====================================================== -->
@@ -531,7 +721,6 @@
   <span class="cert-close" onclick="closeCert()">✕</span>
   <img id="certModalImg" class="cert-modal-img">
 </div>
-
 <!-- ======================================================
      CONNECT HUB (LINKS + FOOTER)
      ====================================================== -->
@@ -539,7 +728,7 @@
   <div class="connect-container">
 
     <!-- TITLE -->
-    <h2 class="connect-title">Connect</h2>
+    <h2 class="connect-title" data-reveal>Connect</h2>
     <p class="connect-sub">
       Find my work, professional profile, and credentials.
     </p>
@@ -578,7 +767,7 @@
 
     <!-- FOOTER SIGNATURE -->
     <div class="connect-footer">
-      <span>© 2025 CHINTHA DEEPAK</span>
+      <span>© <span id="footerYear">2025</span> CHINTHA DEEPAK</span>
       <span class="divider">•</span>
       <span>AI & Robotics Engineer</span>
     </div>

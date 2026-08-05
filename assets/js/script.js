@@ -218,59 +218,6 @@ function safeEmit(viewer, eventName, payload = {}) {
     document.querySelectorAll(".lazy-load").forEach((el) => el.classList.add("visible"));
   });
 
-  /******************************************************
-   * Cursor orb (magnetic) visual
-   ******************************************************/
-  (function initOrb() {
-    // create orb if not present
-    let orb = document.querySelector(".cursor-orb");
-    if (!orb) {
-      orb = document.createElement("div");
-      orb.className = "cursor-orb";
-      document.body.appendChild(orb);
-    }
-    orb.style.display = "block";
-    orb.style.width = "18px";
-    orb.style.height = "18px";
-    orb.style.opacity = "0";
-    orb.style.position = "fixed";
-    orb.style.left = "0";
-    orb.style.top = "0";
-    orb.style.borderRadius = "50%";
-    orb.style.transform = "translate(-50%,-50%)";
-    orb.style.pointerEvents = "none";
-    orb.style.zIndex = "9999";
-    orb.style.background = "radial-gradient(circle at 35% 35%, rgba(255,255,255,0.95), rgba(0,224,255,0.9))";
-    orb.style.boxShadow = "0 8px 30px rgba(0,224,255,0.08), 0 2px 8px rgba(168,85,247,0.06)";
-    orb.style.mixBlendMode = "screen";
-
-    let ox = 0, oy = 0, tx = 0, ty = 0;
-    const lerp = (a, b, t) => a + (b - a) * t;
-
-    document.addEventListener("mousemove", (e) => {
-      tx = e.clientX; ty = e.clientY;
-      orb.style.opacity = "1";
-    }, { passive: true });
-
-    function loop() {
-      ox = lerp(ox, tx, 0.24);
-      oy = lerp(oy, ty, 0.24);
-      orb.style.transform = `translate(${ox}px, ${oy}px) translate(-50%, -50%)`;
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-
-    // enlarge on hoverable elements
-    const interactables = document.querySelectorAll("a, button, .btn-solid, .project-card, .nav a, .social-icons a");
-    interactables.forEach(el => {
-      el.addEventListener("mouseenter", () => {
-        orb.style.width = "36px"; orb.style.height = "36px"; orb.style.opacity = "0.96"; orb.style.mixBlendMode = "difference";
-      });
-      el.addEventListener("mouseleave", () => {
-        orb.style.width = "18px"; orb.style.height = "18px"; orb.style.opacity = "0.88"; orb.style.mixBlendMode = "screen";
-      });
-    });
-  })();
 
   /******************************************************
    * Small accessibility: respect reduced-motion
@@ -291,6 +238,130 @@ function safeEmit(viewer, eventName, payload = {}) {
    CERTIFICATE MODAL CONTROL
    ====================================================== */
 
+/* ======================================================
+   V2 UPGRADE — SCROLL REVEALS, ROBOT TILT, MAGNETIC UI
+   ====================================================== */
+(function () {
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Scroll reveal ---------- */
+  const revealEls = document.querySelectorAll("[data-reveal]");
+  if (revealEls.length && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delay = entry.target.getAttribute("data-reveal-delay") || 0;
+          entry.target.style.setProperty("--reveal-delay", delay);
+          entry.target.classList.add("is-visible");
+          // also flag the parent skill-card-pro so the fill bar animates
+          if (entry.target.classList.contains("skill-card-pro")) {
+            entry.target.classList.add("is-visible");
+          }
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
+
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  /* ---------- Robot subtle tilt-toward-cursor ----------
+     Works independently of the Spline scene's internal event bindings —
+     tilts the whole viewer frame in 3D based on cursor position, so the
+     robot visually "looks toward" the pointer no matter what's baked
+     into the .splinecode file. */
+  if (!reduceMotion) {
+    const frame = document.getElementById("splineHolder");
+    if (frame) {
+      const maxTilt = 6; // degrees, kept subtle
+      let rafId = null;
+      let targetX = 0, targetY = 0, curX = 0, curY = 0;
+
+      function updateTilt(clientX, clientY) {
+        const rect = frame.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = (clientX - cx) / (window.innerWidth / 2);
+        const dy = (clientY - cy) / (window.innerHeight / 2);
+        targetY = Math.max(-1, Math.min(1, dx)) * maxTilt;
+        targetX = Math.max(-1, Math.min(1, -dy)) * maxTilt;
+        if (!rafId) rafId = requestAnimationFrame(tick);
+      }
+
+      function tick() {
+        curX += (targetX - curX) * 0.08;
+        curY += (targetY - curY) * 0.08;
+        frame.style.setProperty("--tilt-x", curX.toFixed(2) + "deg");
+        frame.style.setProperty("--tilt-y", curY.toFixed(2) + "deg");
+        if (Math.abs(targetX - curX) > 0.01 || Math.abs(targetY - curY) > 0.01) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          rafId = null;
+        }
+      }
+
+      window.addEventListener("mousemove", (e) => {
+        frame.classList.add("tilt-active");
+        updateTilt(e.clientX, e.clientY);
+      }, { passive: true });
+
+      window.addEventListener("mouseleave", () => {
+        targetX = 0; targetY = 0;
+        if (!rafId) rafId = requestAnimationFrame(tick);
+      });
+    }
+  }
+
+  /* ---------- Magnetic buttons ---------- */
+  if (!reduceMotion) {
+    const magnets = document.querySelectorAll(".btn-solid, .btn-outline, .connect-card");
+    magnets.forEach((el) => {
+      let raf = null;
+      el.addEventListener("mousemove", (e) => {
+        const rect = el.getBoundingClientRect();
+        const mx = e.clientX - rect.left - rect.width / 2;
+        const my = e.clientY - rect.top - rect.height / 2;
+        const strength = 0.18;
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          el.style.transform = `translate(${mx * strength}px, ${my * strength}px)`;
+        });
+      });
+      el.addEventListener("mouseleave", () => {
+        if (raf) cancelAnimationFrame(raf);
+        el.style.transform = "translate(0, 0)";
+      });
+    });
+  }
+
+  /* ---------- Project card 3D tilt ---------- */
+  if (!reduceMotion) {
+    const cards = document.querySelectorAll(".project-card:not(.coming-soon)");
+    cards.forEach((card) => {
+      const wrap = card.closest("a") || card;
+      wrap.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.setProperty("--tilt-ry", (px * 8).toFixed(2) + "deg");
+        card.style.setProperty("--tilt-rx", (-py * 8).toFixed(2) + "deg");
+      });
+      wrap.addEventListener("mouseleave", () => {
+        card.style.setProperty("--tilt-ry", "0deg");
+        card.style.setProperty("--tilt-rx", "0deg");
+      });
+    });
+  }
+})();
+
+// Auto-update footer year
+(function () {
+  const y = document.getElementById("footerYear");
+  if (y) y.textContent = new Date().getFullYear();
+})();
+
 function openCert(src) {
   const modal = document.getElementById("certModal");
   const img = document.getElementById("certModalImg");
@@ -302,3 +373,14 @@ function closeCert() {
   const modal = document.getElementById("certModal");
   modal.style.display = "none";
 }
+/* ---------- Auto-rotating slideshows (Education + Projects) ---------- */
+document.querySelectorAll(".slideshow").forEach((el) => {
+  const imgs = el.querySelectorAll("img");
+  if (imgs.length < 2) return; // single image, nothing to rotate
+  let idx = 0;
+  setInterval(() => {
+    imgs[idx].classList.remove("active");
+    idx = (idx + 1) % imgs.length;
+    imgs[idx].classList.add("active");
+  }, 5000);
+});
